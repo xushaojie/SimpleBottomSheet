@@ -33,7 +33,7 @@ public class TestBottomSheet extends BottomSheet {
 
     @Override
     public void initView(View root) {
-        CategoryAdapter adapter = new CategoryAdapter(mActivity);
+        TestAdapter adapter = new TestAdapter(mActivity);
         ListView list = (ListView) root.findViewById(R.id.bs_test_list);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,13 +69,13 @@ public class TestBottomSheet extends BottomSheet {
         return 0.4f;
     }
 
-    public static class CategoryAdapter extends BaseAdapter {
+    public static class TestAdapter extends BaseAdapter {
 
         private static final String[] ITEMS = {"A", "B", "C", "D", "E", "F"};
 
         private Context mContext;
 
-        public CategoryAdapter(Context context) {
+        public TestAdapter(Context context) {
             mContext = context;
         }
 
@@ -106,8 +106,7 @@ public class TestBottomSheet extends BottomSheet {
             } else {
                 viewholder = (ViewHolder) view.getTag();
             }
-            String category = ITEMS[position];
-            viewholder.name.setText(category);
+            viewholder.name.setText(ITEMS[position]);
             return view;
         }
 
